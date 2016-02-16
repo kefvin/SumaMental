@@ -7,6 +7,11 @@ import java.util.Random;
 
 import javax.swing.JFrame;
 import javax.swing.Timer;
+import javax.swing.JPanel;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import javax.swing.JLabel;
+import java.awt.Font;
 
 public class SumaMental {
 
@@ -44,6 +49,39 @@ public class SumaMental {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		int encertat = 0;
+		//Crear el label donde mostrar las operaciones 
+		//y el input donde poner el resultado y mirar que esté bien
+		int suma;
+		int resta;
+		int multiplicacio /*= rand.nextInt(13) - rand.nextInt(13*/ ;
+		int primer;
+		int segon;
+		
+		switch(encertat){
+			case 0:
+				primer = genera();
+				segon = genera();
+				suma = primer + segon;
+				break;
+			case 1:
+				primer = genera();
+				segon = genera();
+				resta = primer - segon;
+				break;
+			
+		}
+		JLabel quant = new JLabel("Quant dóna...");
+		quant.setFont(new Font("Dialog", Font.BOLD, 26));
+		quant.setBounds(122, 53, 203, 45);
+		frame.getContentPane().add(quant);
+		
+		JLabel lblNewLabel = new JLabel();
+		lblNewLabel.setFont(new Font("Dialog", Font.BOLD, 18));
+		lblNewLabel.setBounds(145, 110, 148, 45);
+		frame.getContentPane().add(lblNewLabel);
 		
 		Timer timer = new Timer(1000, new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -51,17 +89,15 @@ public class SumaMental {
 				
 			}
 	});
-		int resoltes = 0;
-		Random rand = new Random();
 		
-		//Crear el label donde mostrar las operaciones 
-		//y el input donde poner el resultado y mirar que esté bien
-		int suma = rand.nextInt(13) + rand.nextInt(13) ;
-		int resta = rand.nextInt(13) - rand.nextInt(13) ;
-		int multiplicacio = rand.nextInt(13) - rand.nextInt(13) ;
-			
 	}
 	
-	
+	public int genera(){
 
+		Random rand = new Random();
+		
+		return rand.nextInt(13);
+		
+	}
+	
 }
