@@ -12,12 +12,14 @@ import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import javax.swing.JLabel;
 import java.awt.Font;
+import javax.swing.JTextField;
 
 public class SumaMental {
 
 	int segons = 0;
 	
 	private JFrame frame;
+	private JTextField resultat;
 
 	/**
 	 * Launch the application.
@@ -56,7 +58,7 @@ public class SumaMental {
 		//y el input donde poner el resultado y mirar que esté bien
 		int suma;
 		int resta;
-		int multiplicacio /*= rand.nextInt(13) - rand.nextInt(13*/ ;
+		int multiplicacio;
 		int primer;
 		int segon;
 		
@@ -64,12 +66,24 @@ public class SumaMental {
 			case 0:
 				primer = genera();
 				segon = genera();
+				String pintaOperacio = primer+" + "+segon;
+				pinta(pintaOperacio); //Repetir estas dos últimas líneas y crear otro metodo para
+									  //recojer lo que se escribe en el imput y puede que otro para 
+									  //comparar que el resultado sea correcto
 				suma = primer + segon;
+				encertat++;
 				break;
 			case 1:
 				primer = genera();
 				segon = genera();
 				resta = primer - segon;
+				encertat++;
+				break;
+			case 2:
+				primer = genera();
+				segon = genera();
+				multiplicacio = primer * segon;
+				encertat++;
 				break;
 			
 		}
@@ -82,6 +96,16 @@ public class SumaMental {
 		lblNewLabel.setFont(new Font("Dialog", Font.BOLD, 18));
 		lblNewLabel.setBounds(145, 110, 148, 45);
 		frame.getContentPane().add(lblNewLabel);
+		
+		JLabel operacio = new JLabel("......");
+		operacio.setFont(new Font("Dialog", Font.BOLD, 15));
+		operacio.setBounds(132, 110, 159, 37);
+		frame.getContentPane().add(operacio);
+		
+		resultat = new JTextField();
+		resultat.setBounds(142, 167, 151, 25);
+		frame.getContentPane().add(resultat);
+		resultat.setColumns(10);
 		
 		Timer timer = new Timer(1000, new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -100,4 +124,7 @@ public class SumaMental {
 		
 	}
 	
+	public void pinta(String op){
+		
+	}
 }
